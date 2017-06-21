@@ -1,0 +1,56 @@
+<section id="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-wrap">
+                    <h2>Add a Cricketer</h2>
+                    <form>
+                    <div class="form-group">
+                        <label for="empCode">Employee Code</label>
+                        <input type="text" class="form-control" [(ngModel)]="currentEmployee.empCode" name="empCode" id="empCode" placeholder="Employee Code">
+                    </div>
+                    <div class="form-group">
+                        <label for="empName">Employee Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="currentEmployee.empName" name="empName" id="empName" placeholder="Employee Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="empSalary">Employee Salary</label>
+                        <input type="text" class="form-control" [(ngModel)]="currentEmployee.empSalary" name="empSalary" id="empSalary" placeholder="Employee Salary">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success" (click)="addEmployee()">Submit</button>
+                    <button type="button" class="btn btn-primary" (click)="updateEmployee()">Update</button>
+                    <button type="button" class="btn btn-warning" (click)="clearFields()">Clear</button>
+                    
+                    </form>
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Employee Code</th>
+                                <th>Employee Name</th>
+                                <th>Employee Salary</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let emp of employees">
+                                    <td>{{ emp.empCode }}</td>
+                                    <td>{{ emp.empName }}</td>
+                                    <td>{{ emp.empSalary }}</td>
+                                    <td>
+                                        <a href="#" (click)="selectEmployee(emp)">Select</a>
+                                        <a href="#" (click)="deleteEmployee(employees.indexOf(emp))">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-xs-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
